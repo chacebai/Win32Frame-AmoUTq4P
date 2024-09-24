@@ -8,7 +8,7 @@
 class IFControl : public IFComponent
 {
 protected:
-    LONG m_units;
+    LONG m_units = 0;
     BOOL m_verticalCenter = TRUE;
     BOOL m_horizontalCenter = TRUE;
     HWND m_hParentWnd = NULL;

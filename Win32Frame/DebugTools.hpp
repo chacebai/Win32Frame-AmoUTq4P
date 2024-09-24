@@ -100,7 +100,7 @@ private:
         RegisterClass(&wc);
 
         // ¼ÆËãÆÁÄ»ÖÐÐÄ
-        RECT screenRect;
+        RECT screenRect = { 0 };
         SystemParametersInfo(SPI_GETWORKAREA, 0, &screenRect, 0);
         int centerX = screenRect.left + (screenRect.right - screenRect.left - nWidth) / 2;
         int centerY = screenRect.top + (screenRect.bottom - screenRect.top - nHeight) / 2;
@@ -166,8 +166,8 @@ private:
 
     HWND m_hWnd;
     HINSTANCE hInstance;
-    LPCTSTR m_displayText;
-    int m_displayTextLength;
+    LPCTSTR m_displayText = NULL;
+    int m_displayTextLength = 0;
 };
 
 #endif // __DEBUGTOOLS_H__

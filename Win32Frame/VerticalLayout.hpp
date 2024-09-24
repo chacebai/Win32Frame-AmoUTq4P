@@ -11,7 +11,7 @@ class VerticalLayout : public IFLayout
 private:
     struct VerticalLayoutItem
     {
-        UINT nHeightRatio; // å æ®æ€»é«˜åº¦çš„æ¯”ä¾‹
+        UINT nHeightRatio; // Õ¼¾İ×Ü¸ß¶ÈµÄ±ÈÀı
         IFComponent* pComp;
     };
 protected:
@@ -21,7 +21,7 @@ public:
     VerticalLayout() : m_items() {}
 
     void AddComponent(
-        _In_ UINT nHeightRatio,  // å®šä¹‰ç»„ä»¶åœ¨å‚ç›´å¸ƒå±€ä¸­çš„é«˜åº¦æ¯”ä¾‹
+        _In_ UINT nHeightRatio,  // ¶¨Òå×é¼şÔÚ´¹Ö±²¼¾ÖÖĞµÄ¸ß¶È±ÈÀı
         _In_ IFComponent* pComp
     )
     {
@@ -57,19 +57,19 @@ public:
         //for (const VerticalLayoutItem& item : m_items)
         for (auto pItem = m_items.begin(); pItem != m_items.end(); ++pItem)
         {
-            // è®¡ç®—ç»„ä»¶é«˜åº¦
+            // ¼ÆËã×é¼ş¸ß¶È
             INT itemHeight = (totalHeight * pItem->nHeightRatio) / 100;
-            // æç¤ºæœ€å°èŒƒå›´
+            // ÌáÊ¾×îĞ¡·¶Î§
             if (width < pItem->pComp->GetMinWidth()) bShowTips = TRUE;
             if (itemHeight < pItem->pComp->GetMinHeight()) bShowTips = TRUE;
-            // é˜²æ­¢æ§ä»¶å †ç§¯
+            // ·ÀÖ¹¿Ø¼ş¶Ñ»ı
             INT limitWidth = max(width, pItem->pComp->GetMinWidth());
             INT limitHeight = max(itemHeight, pItem->pComp->GetMinHeight());
-            // æ›´æ–°æ§ä»¶å¸ƒå±€
+            // ¸üĞÂ¿Ø¼ş²¼¾Ö
             pItem->pComp->OnLayout(x, currentY, limitWidth, limitHeight);
-            // ç»˜åˆ¶è°ƒè¯•è¾¹æ¡†
+            // »æÖÆµ÷ÊÔ±ß¿ò
             DebugTools::GetInstance().AddBorder(x, currentY, limitWidth, limitHeight, 2);
-            // æ›´æ–°ä¸‹ä¸€ä¸ªç»„ä»¶çš„èµ·å§‹Yåæ ‡
+            // ¸üĞÂÏÂÒ»¸ö×é¼şµÄÆğÊ¼Y×ø±ê
             currentY += limitHeight;
         }
         DebugTools::GetInstance().ShowTips(bShowTips);
