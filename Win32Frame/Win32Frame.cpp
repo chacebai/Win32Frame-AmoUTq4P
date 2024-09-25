@@ -146,8 +146,8 @@ int testHorizontalLayout()
     btnA2.SetMaxSize(INT_MAX, 30);
     btnA3.SetMinSize(0, 30);
     btnA3.SetMaxSize(INT_MAX, 30);
-    vert.AddComponent(10, &btnA2);
-    vert.AddComponent(10, &btnA3);
+    vert.AddComponent(30, &btnA2);
+    vert.AddComponent(40, &btnA3);
     hori.AddComponent(10, &vert);
     hori.AddComponent(10, &btnA);
     hori.AddComponent(10, &btnB);
@@ -158,7 +158,7 @@ int testHorizontalLayout()
     PaddingLayout padding(50, 50, 50, 50);
     padding.SetComponent(&hori);
 
-    TestWindow wndTest(&padding);
+    TestWindow wndTest(&hori);
     if (!wndTest.Create(TEXT("Test Window 好好")))
     {
         return -1;

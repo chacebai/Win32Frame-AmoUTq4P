@@ -14,6 +14,9 @@ protected:
     INT m_minHeight = 0;
     INT m_maxWidth = INT_MAX;
     INT m_maxHeight = INT_MAX;
+    RECT m_margin = { 0 };
+    RECT m_padding = { 0 };
+
 public:
 
     virtual BOOL OnCreate(HWND hParentWnd) = 0;
