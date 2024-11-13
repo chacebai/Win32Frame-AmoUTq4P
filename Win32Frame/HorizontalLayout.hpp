@@ -50,14 +50,14 @@ public:
         _In_ INT height
     )
     {
-        m_margin = { 20,20,20,20 };
-        m_padding = { 20,20,20,20 };
+        //m_margin = { 20,20,20,20 };
+        //m_padding = { 20,20,20,20 };
 
         x = x + m_margin.left;
         y = y + m_margin.top;
         width = width + m_margin.right;
         height = height + m_margin.bottom;
-        DebugTools::GetInstance().AddBorder(x, y, width-60, height-60, 2);
+        DebugTools::GetInstance().AddBorder(x, y, width, height, 2);
 
 
         INT totalWidth = width;

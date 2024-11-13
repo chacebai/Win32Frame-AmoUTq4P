@@ -158,7 +158,7 @@ int testHorizontalLayout()
     PaddingLayout padding(50, 50, 50, 50);
     padding.SetComponent(&hori);
 
-    TestWindow wndTest(&hori);
+    TestWindow wndTest(&padding);
     if (!wndTest.Create(TEXT("Test Window 好好")))
     {
         return -1;
